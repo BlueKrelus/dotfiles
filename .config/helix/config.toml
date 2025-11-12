@@ -1,11 +1,21 @@
 theme = "gruvbox"
-
-
 [keys.normal]
+# Print the current line's git blame information to the statusline.
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
 "A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
 "A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
 "A-up" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
 "A-down" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+
+[keys.normal.space.z]
+s = [":sh zellij run -f -c -- aspell -c %{buffer_name}", ":reload-all"]
+l = [":sh zellij run -f -c -- lazygit"]
+
+
+[keys.insert]
+"A-down" = ["normal_mode", "extend_line_below", "delete_selection", "paste_after", "insert_mode"]  # Move line down
+"A-up" = ["normal_mode", "extend_line_below", "delete_selection", "move_line_up", "paste_before", "insert_mode"]  # Move line up
 
 
 [keys.select]
@@ -13,3 +23,21 @@ theme = "gruvbox"
 "A-j" = ["goto_line_end","extend_line_below",  "delete_selection", "paste_after", "select_mode" ]
 "A-up" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]
 "A-down" = ["goto_line_end","extend_line_below",  "delete_selection", "paste_after", "select_mode" ]
+
+
+[editor]
+"default-yank-register" = "+"
+"true-color" = true
+"bufferline" = "multiple"
+"color-modes" = true
+"trim-trailing-whitespace" = true
+
+# [editor.whitespace]
+# render = "all"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
