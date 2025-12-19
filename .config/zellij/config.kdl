@@ -232,6 +232,18 @@ keybinds clear-defaults=true {
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     }
+    normal {
+        bind "Ctrl l" {
+            Run "lazygit" {
+                    close_on_exit true
+                    floating true
+                    x "10%"
+                    y "15%"
+                    width "80%"
+                    height "70%"
+            }
+        }
+    }
 }
 
 // Plugin aliases - can be used to change the implementation of Zellij
