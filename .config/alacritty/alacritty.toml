@@ -1,0 +1,18 @@
+[general]
+import = [
+"~/.config/alacritty/keybindings.toml",
+"alacritty-theme/themes/gruvboxi_material.toml",
+]
+
+[window]
+opacity = 0.9
+# decorations = "None"
+
+[font]
+normal = { family = "HackNerdFont", style = "Regular" }
+# normal = { family = "AgaveNerdFont", style = "Regular" }
+# normal = { family = "HeavyDataNerdFontPropo", style = "Regular" }
+
+
+# HeavyDataNerdFontPropo
+# size = 13.25
