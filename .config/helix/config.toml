@@ -2,21 +2,44 @@ theme = "gruvbox"
 [keys.normal]
 # Print the current line's git blame information to the statusline.
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
-"A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
-"A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
-"A-up" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
-"A-down" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+"C-left" = ["move_prev_word_start"]
+"C-right" = ["move_next_word_start"]
+"C-S-left" = ["move_prev_long_word_start"]
+"C-S-right" = ["move_next_long_word_start"]
+"C-up" = ["goto_prev_paragraph"]
+"C-down" = ["goto_next_paragraph"]
+
+# Utility shortcuts (ret prefix)
+[keys.normal.ret]
+d = ":yank-diagnostic"
+# ret.h = ":toggle-option file-picker.hidden"
+# ret.i = ":toggle-option file-picker.git-ignore"
+# ret.l = ":o ~/.config/helix/languages.toml"
+c = ":config-open"
+r = ":config-reload"
+
+# "A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
+# "A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+# "A-up" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
+# "A-down" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
 
 [keys.normal.space.z]
 s = [":sh zellij run -f -c -- aspell -c %{buffer_name}", ":reload-all"]
 l = [":sh zellij run -f -c -- lazygit"]
-
+L = [":sh zellij action switch-mode locked"]
 
 [keys.insert]
 "A-down" = ["normal_mode", "extend_line_below", "delete_selection", "paste_after", "insert_mode"]  # Move line down
 "A-up" = ["normal_mode", "extend_line_below", "delete_selection", "move_line_up", "paste_before", "insert_mode"]  # Move line up
-
+"C-left" = ["move_prev_word_start"]
+"C-right" = ["move_next_word_start"]
+"C-S-left" = ["move_prev_long_word_start"]
+"C-S-right" = ["move_next_long_word_start"]
+"C-up" = ["goto_prev_paragraph"]
+"C-down" = ["goto_next_paragraph"]
 
 [keys.select]
 "A-k" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]
